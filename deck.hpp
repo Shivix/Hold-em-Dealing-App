@@ -2,7 +2,7 @@
 #define HOLDEMDEALER_DECK_HPP
 
 #include <vector>
-#include <wx/image.h>
+#include <wx/wx.h>
 
 class deck{
 public:
@@ -16,10 +16,21 @@ public:
     
     typedef wxImage card; // increases readability since cards are just stored as images
     
-    static card drawnCard;
-    static card drawnCard2;
+    card drawnCard;
+    card drawnCard2;
+    card drawnCard3;
     
     bool deckEmpty = false;
+    
+    enum class phase{
+        preflop,
+        flop,
+        turn,
+        river,
+        reset
+    };
+    enum phase phase;
+    enum phase prevPhase;
     
 private:
     int deckCounter = 0;
