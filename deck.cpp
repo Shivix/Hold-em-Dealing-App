@@ -38,7 +38,7 @@
 }
 
 void deck::shuffle(){
-    std::shuffle(deckVec.begin(), deckVec.end(), std::default_random_engine(std::chrono::system_clock::now().time_since_epoch().count())); // shuffles the array of cards in a pseudo-random order
+    std::shuffle(deckVec.begin(), deckVec.end(), std::mt19937(std::chrono::system_clock::now().time_since_epoch().count())); // shuffles the array of cards in a pseudo-random order
 }
 
 void deck::refill(){ // "refills" the deck by setting the counter that loops through the deckVec array to 0

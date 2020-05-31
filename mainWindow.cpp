@@ -29,13 +29,13 @@ mainWindow::~mainWindow() = default;
         event.Skip(); // tells the program that the event has been completed
     }
 
-    void mainWindow::shuffleButtonClick(wxCommandEvent &event){ // function runs every time the shuffle button is clicked
+    void mainWindow::shuffleButtonClick(wxCommandEvent &event){
         deck.shuffle();
         wxMessageBox("The deck was shuffled!", "Shuffled");
         event.Skip();
 }
 
-void mainWindow::refillButtonClick(wxCommandEvent &event){ // function runs every time the shuffle button is clicked
+void mainWindow::refillButtonClick(wxCommandEvent &event){ 
     deck.refill();
     wxDELETE(cardImage);
     wxDELETE(cardImage2);
@@ -49,7 +49,7 @@ void mainWindow::refillButtonClick(wxCommandEvent &event){ // function runs ever
     event.Skip();
 }
 
-void mainWindow::communityButtonClick(wxCommandEvent &event){ // function runs every time the shuffle button is clicked
+void mainWindow::communityButtonClick(wxCommandEvent &event){ 
     if(deck.phase == deck::phase::flop || deck.phase == deck::phase::preflop){
         deck.phase = deck::phase::flop;
         deck.deal();
